@@ -1,7 +1,7 @@
 ﻿
 using UnityEngine;
 
-namespace TSU.SceneManager
+namespace TSU.TwoD
 {
     /// <summary>
     ///場景管理器:切換場景與退出遊戲 

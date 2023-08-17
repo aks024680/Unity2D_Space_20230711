@@ -1,6 +1,6 @@
 ﻿
 using UnityEngine;
-namespace TSUTwoD
+namespace TSU.TwoD
 {
     /// <summary>
     /// 2D橫向卷軸腳色控制待機、跑步、跳躍
