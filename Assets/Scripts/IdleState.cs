@@ -11,6 +11,8 @@ namespace TSU.TwoD
         private bool startWander;
         [SerializeField, Header("等待狀態的隨機範圍")]
         private Vector2 rangeIdleTime = new Vector2 (0,3);
+        [SerializeField, Header("追蹤狀態")]
+        private TrackState stateTrack;
 
         private float timeIdle;
 
@@ -19,22 +21,37 @@ namespace TSU.TwoD
         private void Start()
         {
           timeIdle = Random.Range(rangeIdleTime.x, rangeIdleTime.y);
-            print($"<color=purple>隨機等待時間 : {timeIdle}</color>");
+            
         }
 
         public override State RunCurrentState()
         {
             timer += Time.deltaTime;
-            print($"<color=blue>計時器 : {timer}</color>");
+            
             if(timer >= timeIdle ) startWander = true;
-           if(startWander)
+            if (stateWander.TrackTarget())
             {
+                ResetState();
+                return stateTrack;
+            }
+            else if(startWander)
+            {
+                ResetState();
+
                 return stateWander;
             }
+           
             else
             {
                 return this;
             }
+        }
+
+        private void ResetState()
+        {
+            timer = 0;
+            startWander = false;
+            timeIdle = Random.Range(rangeIdleTime.x, rangeIdleTime.y);
         }
     }
 
