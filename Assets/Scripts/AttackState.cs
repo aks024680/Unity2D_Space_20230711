@@ -1,4 +1,5 @@
 ﻿
+using Space;
 using UnityEngine;
 
 namespace TSU.TwoD
@@ -11,11 +12,19 @@ namespace TSU.TwoD
         private float timeAttackEnd = 1.5f;
         [SerializeField, Header("追蹤狀態")]
         private TrackState stateTrack;
+        [SerializeField, Header("敵人資料")]
+        private DataBasic data;
 
         private bool canSendAttack = true;
         private string parAttack = "Attack";
         private float timer;
 
+        private DamageSystem damageSystem;
+
+        private void Start()
+        {
+            damageSystem = GameObject.Find("SpaceGirl").GetComponent<DamageSystem>();
+        }
         public override State RunCurrentState()
         {
             if (timer == 0)
@@ -30,7 +39,8 @@ namespace TSU.TwoD
                     canSendAttack = false;
                     if (stateTrack.AttackTarget())
                     {
-                        print("<color=#69f>擊中玩家!</color>");
+                        //print("<color=#69f>擊中玩家!</color>");
+                        damageSystem.Damage(data.attack);
                     }
                 }
                 else if (timer >= timeAttackEnd)
