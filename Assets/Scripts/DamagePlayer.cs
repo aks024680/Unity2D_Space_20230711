@@ -19,6 +19,9 @@ namespace Space
             base.Damage(getDamage);
             imgHP.fillAmount = hp / hpMax;
             StartCoroutine(DamageEffect());
+
+            AudioClip sound = SoundManager.instance.soundPlayerHit;
+            SoundManager.instance.PlaySound(sound, 0.7f, 1.7f);
         }
 
         private void OnEnable()
@@ -35,6 +38,11 @@ namespace Space
         {
             fungusGM.SendFungusMessage("遊戲失敗");
             Destroy(gameObject);
+
+            AudioClip soundDie = SoundManager.instance.soundPlayerDead;
+            SoundManager.instance.PlaySound(soundDie, 0.7f, 1.7f);
+            AudioClip soundLose = SoundManager.instance.soundLose;
+            SoundManager.instance.PlaySound(soundLose, 0.7f, 1.7f);
         }
         private IEnumerator DamageEffect()
         {

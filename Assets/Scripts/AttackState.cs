@@ -53,6 +53,12 @@ namespace TSU.TwoD
             timer += Time.deltaTime;
             return this;
         }
+
+        public void ResetAttackState()
+        {
+            timer = 0;
+            canSendAttack = true;
+        }
     }
 
 }

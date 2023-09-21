@@ -1,4 +1,5 @@
 ﻿
+using Space;
 using UnityEngine;
 
 namespace TSU.TwoD
@@ -30,6 +31,9 @@ public class ShootBullectController : MonoBehaviour
                 ani.SetTrigger(parFire);
                 GameObject tempBullect = Instantiate(prefabBullect, bullectSpawn.position,transform.rotation);
                 tempBullect.GetComponent<Rigidbody2D>().AddForce(transform.right* powerBullect);
+
+                AudioClip sound = SoundManager.instance.soundFire;
+                SoundManager.instance.PlaySound(sound,0.7f,1.7f);
             }
         }
     }
