@@ -6978,6 +6978,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d58b57f2bdb83fc48b61c395ae1d2d3c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  flowchartGM: {fileID: 0}
 --- !u!114 &680847016
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6990,6 +6991,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73be687ceda86044f974c732f5faee7a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  data: {fileID: 0}
+  prefabDamage: {fileID: 0}
+  imgHP: {fileID: 0}
+  fungusGM: {fileID: 0}
+  mHurt: {fileID: 0}
 --- !u!114 &680847017
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7002,6 +7008,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4e53a03a99266a4abdfb588bc87d342, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  prefabBullect: {fileID: 0}
+  bullectSpawn: {fileID: 0}
+  powerBullect: 1000
 --- !u!114 &680847018
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7014,6 +7023,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e20e7b8a056684c408effa7e25689bbc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speed: 3.5
+  v3CheckGroundSize: {x: 1, y: 1, z: 1}
+  v3CheckGroundOffset: {x: 0, y: 0, z: 0}
+  layerCheckGround:
+    serializedVersion: 2
+    m_Bits: 0
+  jumpForce: 500
 --- !u!70 &680847019
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -7413,8 +7429,7 @@ MonoBehaviour:
     height: 0
   selectedBlocks:
   - {fileID: 723928232}
-  selectedCommands:
-  - {fileID: 723928230}
+  selectedCommands: []
   variables: []
   description: 
   stepPause: 0
@@ -7663,7 +7678,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 759127223}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.5194407, y: 5.4107704, z: -10}
+  m_LocalPosition: {x: 5.504093, y: 5.4109907, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -8442,11 +8457,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 1
-  scrollPos: {x: 654.68585, y: 264.8828}
+  scrollPos: {x: 757.9491, y: 257.01782}
   variablesScrollPos: {x: 0, y: 0}
   variablesExpanded: 1
-  blockViewHeight: 209
-  zoom: 0.94000006
+  blockViewHeight: 460
+  zoom: 1
   scrollViewRect:
     serializedVersion: 2
     x: -343
@@ -8455,8 +8470,7 @@ MonoBehaviour:
     height: 859
   selectedBlocks:
   - {fileID: 952004853}
-  selectedCommands:
-  - {fileID: 952004858}
+  selectedCommands: []
   variables: []
   description: 
   stepPause: 0
@@ -8511,7 +8525,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -611.9491
     y: -196.51782
-    width: 96.8085
+    width: 98
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -8896,6 +8910,40 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 073797afb82c5a1438f328866b10b3f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_ComponentVersion: 1
+  m_LightType: 3
+  m_BlendStyleIndex: 0
+  m_FalloffIntensity: 0.5
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Intensity: 1
+  m_LightVolumeIntensity: 1
+  m_LightVolumeIntensityEnabled: 1
+  m_ApplyToSortingLayers: 00000000
+  m_LightCookieSprite: {fileID: 0}
+  m_DeprecatedPointLightCookieSprite: {fileID: 0}
+  m_LightOrder: 0
+  m_AlphaBlendOnOverlap: 0
+  m_OverlapOperation: 0
+  m_NormalMapDistance: 3
+  m_NormalMapQuality: 2
+  m_UseNormalMap: 0
+  m_ShadowIntensityEnabled: 1
+  m_ShadowIntensity: 0.75
+  m_ShadowVolumeIntensityEnabled: 1
+  m_ShadowVolumeIntensity: 0.75
+  m_LocalBounds:
+    m_Center: {x: 0, y: -0.00000011920929, z: 0}
+    m_Extent: {x: 0.9985302, y: 0.99853027, z: 0}
+  m_PointLightInnerAngle: 360
+  m_PointLightOuterAngle: 360
+  m_PointLightInnerRadius: 0
+  m_PointLightOuterRadius: 1
+  m_ShapeLightParametricSides: 5
+  m_ShapeLightParametricAngleOffset: 0
+  m_ShapeLightParametricRadius: 1
+  m_ShapeLightFalloffSize: 0.5
+  m_ShapeLightFalloffOffset: {x: 0, y: 0}
+  m_ShapePath: []
 --- !u!1001 &1074845860
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -20832,7 +20880,7 @@ GameObject:
   m_IsActive: 1
 --- !u!114 &1430300754
 MonoBehaviour:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -20859,7 +20907,7 @@ MonoBehaviour:
   setSayDialog: {fileID: 0}
 --- !u!114 &1430300755
 MonoBehaviour:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -20874,7 +20922,7 @@ MonoBehaviour:
   message: "\u904A\u6232\u5931\u6557"
 --- !u!114 &1430300756
 MonoBehaviour:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -20926,9 +20974,8 @@ MonoBehaviour:
     width: 1114
     height: 859
   selectedBlocks:
-  - {fileID: 1430300768}
-  selectedCommands:
-  - {fileID: 1430300767}
+  - {fileID: 1430300762}
+  selectedCommands: []
   variables: []
   description: 
   stepPause: 0
@@ -20957,7 +21004,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1430300759
 MonoBehaviour:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -20977,7 +21024,7 @@ MonoBehaviour:
   fadeTweenType: 4
 --- !u!114 &1430300760
 MonoBehaviour:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -20997,7 +21044,7 @@ MonoBehaviour:
   fadeTweenType: 4
 --- !u!114 &1430300761
 MonoBehaviour:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -21012,7 +21059,7 @@ MonoBehaviour:
   waitForFrames: 1
 --- !u!114 &1430300762
 MonoBehaviour:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -21025,7 +21072,7 @@ MonoBehaviour:
   nodeRect:
     serializedVersion: 2
     x: 50
-    y: -27
+    y: -28
     width: 98
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
@@ -21039,7 +21086,7 @@ MonoBehaviour:
   suppressAllAutoSelections: 0
 --- !u!114 &1430300763
 MonoBehaviour:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -21054,7 +21101,7 @@ MonoBehaviour:
   loadingImage: {fileID: 0}
 --- !u!114 &1430300764
 MonoBehaviour:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -21069,7 +21116,7 @@ MonoBehaviour:
   message: "\u904A\u6232\u52DD\u5229"
 --- !u!114 &1430300765
 MonoBehaviour:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -21084,7 +21131,7 @@ MonoBehaviour:
   loadingImage: {fileID: 0}
 --- !u!114 &1430300766
 MonoBehaviour:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -21104,7 +21151,7 @@ MonoBehaviour:
   fadeTweenType: 4
 --- !u!114 &1430300767
 MonoBehaviour:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -21131,7 +21178,7 @@ MonoBehaviour:
   setSayDialog: {fileID: 0}
 --- !u!114 &1430300768
 MonoBehaviour:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -23049,7 +23096,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 5, y: -5}
+  m_AnchoredPosition: {x: 5, y: 0}
   m_SizeDelta: {x: 105, y: 10}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1811900972
